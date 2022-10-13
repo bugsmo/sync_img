@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-hub="registry.cn-hangzhou.aliyuncs.com"
-repo="$hub/chenby"
+hub="registry.cn-guangzhou.aliyuncs.com"
+repo="$hub/bitnano"
 
 
 if [ -f sync.yaml ]; then
