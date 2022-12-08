@@ -28,7 +28,6 @@ jobs:
           pip install -r requirements.txt
           . /etc/os-release
           echo "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_${VERSION_ID}/ /" | sudo gpg --no-default-keyring --keyring gnupg-ring:/etc/apt/trusted.gpg.d/NAME.gpg --import
-          sudo chown _apt /etc/apt/trusted.gpg.d/NAME.gpg
           sudo apt-get update
           sudo apt-get -y upgrade
           sudo apt-get -y install skopeo
