@@ -33,7 +33,7 @@ images:
     - brancz/kube-rbac-proxy
     - cilium/cilium
     - cilium/operator-generic
-  k8s.gcr.io:
+  registry.k8s.io:
     - etcd
     - pause
     - kube-proxy
