@@ -66,5 +66,4 @@ images:
     - tekton-releases/github.com/tektoncd/pipeline/cmd/nop
     - tekton-releases/github.com/tektoncd/pipeline/cmd/sidecarlogresults
     - tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter
-    - tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init
-    - tekton-releases/github.com/tektoncd/pipeline/cmd/workingdirinit
+    -
