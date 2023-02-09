@@ -1,0 +1,8 @@
+last: 20
+images:
+  gcr.io:
+    - tekton-releases/github.com/tektoncd/triggers/cmd/controller
+    - tekton-releases/github.com/tektoncd/triggers/cmd/webhook
+    - tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink
+    - tekton-releases/github.com/tektoncd/triggers/cmd/interceptors
+    - tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard

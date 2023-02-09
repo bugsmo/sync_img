@@ -35,6 +35,7 @@ jobs:
         timeout-minutes: 10
         run: |
           python generate_sync_yaml.py
+          python generate_sync_yaml2.py
 
       - name: sync image
         env:
