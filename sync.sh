@@ -13,7 +13,6 @@ if [ -f sync.yaml ]; then
    && sudo skopeo --insecure-policy sync --src yaml --dest docker custom_sync.yaml $repo
 
    echo "[End] done."
-   skopeo logout
 else
     echo "[Error]not found sync.yaml!"
 fi
@@ -27,7 +26,6 @@ if [ -f sync2.yaml ]; then
    && sudo skopeo --insecure-policy sync --src yaml --dest docker sync2.yaml $repo
 
    echo "[End] done."
-   skopeo logout
 else
     echo "[Error]not found sync2.yaml!"
 fi
