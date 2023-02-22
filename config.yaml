@@ -54,6 +54,7 @@ images:
     - sig-storage/csi-snapshotter
     - sig-storage/csi-attacher
     - sig-storage/nfsplugin
+    - quay.io/argoproj/argocd
   gcr.io:
     - kaniko-project/executor
     - google-samples/xtrabackup
