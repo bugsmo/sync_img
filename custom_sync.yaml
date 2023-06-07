@@ -1,4 +1,4 @@
-k8s.gcr.io:
+registry.k8s.io:
   images:
     defaultbackend-amd64:
       - '1.5'

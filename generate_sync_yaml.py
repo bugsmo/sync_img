@@ -73,7 +73,7 @@ def get_repo_aliyun_tags(image):
     return tags
 
 
-def get_repo_gcr_tags(image, limit=5, host="k8s.gcr.io"):
+def get_repo_gcr_tags(image, limit=5, host="registry.k8s.io"):
     """
     获取 gcr.io repo 最新的 tag
     :param host:
@@ -293,8 +293,8 @@ def get_repo_tags(repo, image, limit=5):
     tags_data = []
     if repo == 'gcr.io':
         tags_data = get_repo_gcr_tags(image, limit, "gcr.io")
-    elif repo == 'k8s.gcr.io':
-        tags_data = get_repo_gcr_tags(image, limit, "k8s.gcr.io")
+    elif repo == 'registry.k8s.io':
+        tags_data = get_repo_gcr_tags(image, limit, "registry.k8s.io")
     elif repo == 'quay.io':
         tags_data = get_repo_quay_tags(image, limit)
     elif repo == 'docker.elastic.co':
