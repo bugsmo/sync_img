@@ -33,6 +33,7 @@ images:
     - brancz/kube-rbac-proxy
     - cilium/cilium
     - cilium/operator-generic
+    - opstree/redis-sentinel
   registry.k8s.io:
     - etcd
     - pause
