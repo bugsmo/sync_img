@@ -34,7 +34,9 @@ images:
     - cilium/cilium
     - cilium/operator-generic
     - opstree/redis-sentinel
-    - opstree/redis-operator:v0.14.0
+    - opstree/redis-operator
+    - opstree/redis
+    - opstree/redis-exporter
   registry.k8s.io:
     - etcd
     - pause
