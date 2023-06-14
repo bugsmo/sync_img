@@ -37,6 +37,7 @@ images:
     - opstree/redis-operator
     - opstree/redis
     - opstree/redis-exporter
+    - thanos/thanos
   registry.k8s.io:
     - etcd
     - pause
