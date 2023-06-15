@@ -9,6 +9,7 @@ images:
     - bats/bats # grafana charts
     - curlimages/curl # grafana charts
     - tkestack/kvass
+    - thanosio/thanos
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana
