@@ -5,6 +5,10 @@ images:
     - calico/cni
     - calico/node
     - calico/kube-controllers
+    - grafana/grafana # grafana charts
+    - bats/bats # grafana charts
+    - curlimages/curl # grafana charts
+    - tkestack/kvass
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana
