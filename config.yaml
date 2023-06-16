@@ -10,6 +10,8 @@ images:
     - curlimages/curl # grafana charts
     - tkestack/kvass
     - thanosio/thanos
+    - bitnami/thanos
+    - bitnami/bitnami-shell
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana
