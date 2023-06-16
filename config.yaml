@@ -5,9 +5,9 @@ images:
     - calico/cni
     - calico/node
     - calico/kube-controllers
-    - grafana/grafana # grafana charts
-    - bats/bats # grafana charts
-    - curlimages/curl # grafana charts
+    - grafana/grafana
+    - bats/bats
+    - curlimages/curl
     - tkestack/kvass
     - thanosio/thanos
     - bitnami/thanos
