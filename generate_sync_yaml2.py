@@ -112,6 +112,8 @@ def get_repo_gcr_tags(image, limit=5, host="registry.k8s.io"):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
+    for t in tags_limit_data:
+        tags.append(t['tag'])
     # image_aliyun_tags = get_repo_aliyun_tags(image)
     # for t in tags_limit_data:
     #     # 去除同步过的
@@ -121,7 +123,7 @@ def get_repo_gcr_tags(image, limit=5, host="registry.k8s.io"):
     #     tags.append(t['tag'])
 
     # print('[repo tag]', tags)
-    return tags_limit_data
+    return tags
 
 
 def get_repo_quay_tags(image, limit=5):
@@ -162,6 +164,8 @@ def get_repo_quay_tags(image, limit=5):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
+    for t in tags_limit_data:
+        tags.append(t['tag'])
     # image_aliyun_tags = get_repo_aliyun_tags(image)
     # for t in tags_limit_data:
     #     # 去除同步过的
@@ -171,7 +175,7 @@ def get_repo_quay_tags(image, limit=5):
     #     tags.append(t['tag'])
 
     # print('[repo tag]', tags)
-    return tags_limit_data
+    return tags
 
 
 def get_repo_docker_tags(image, limit=5):
@@ -212,6 +216,8 @@ def get_repo_docker_tags(image, limit=5):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
+    for t in tags_limit_data:
+        tags.append(t['tag'])
     # image_aliyun_tags = get_repo_aliyun_tags(image)
     # for t in tags_limit_data:
     #     # 去除同步过的
@@ -221,7 +227,7 @@ def get_repo_docker_tags(image, limit=5):
     #     tags.append(t['tag'])
 
     # print('[repo tag]', tags)
-    return tags_limit_data
+    return tags
 
 def get_repo_elastic_tags(image, limit=5):
     """
