@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import yaml
@@ -31,7 +32,7 @@ def is_exclude_tag(tag):
     if re.search("-\d$", tag, re.M | re.I):
         return False
     if '-' in tag:
-        return True
+        return False
 
     return False
 
@@ -48,7 +49,7 @@ def get_repo_aliyun_tags(image):
     hearders = {
         'User-Agent': 'docker/19.03.12 go/go1.13.10 git-commit/48a66213fe kernel/5.8.0-1.el7.elrepo.x86_64 os/linux arch/amd64 UpstreamClient(Docker-Client/19.03.12 \(linux\))'
     }
-    token_url = "https://dockerauth.cn-guangzhou.aliyuncs.com/auth?scope=repository:bitnano/{image}:pull&service=registry.aliyuncs.com:cn-guangzhou:26842".format(
+    token_url = "https://dockerauth.cn-hangzhou.aliyuncs.com/auth?scope=repository:bitnano/{image}:pull&service=registry.aliyuncs.com:cn-guangzhou:26842".format(
         image=image_name)
     try:
         token_res = requests.get(url=token_url, headers=hearders)
@@ -180,21 +181,21 @@ def get_repo_docker_tags(image, limit=5):
     :param limit:
     :return:
     """
-    tag_url = "https://registry.hub.docker.com/v1/repositories/{image}/tags".format(image=image)
+    tag_url = "https://registry.hub.docker.com/v2/repositories/{image}/tags?page_size={limit}".format(
+        image=image, limit=limit)
 
     tags = []
     tags_data = []
     manifest_data = []
 
     try:
-        tag_rep = requests.get(url=tag_url)
-        tag_req_json = tag_rep.json()
-        # manifest_data = tag_req_json['tags']
+        tag_rep_text = requests.get(url=tag_url).text
+        tag_req_json = json.loads(tag_rep_text)
     except Exception as e:
         print('[Get tag Error]', e)
         return tags
 
-    for manifest in tags_data:
+    for manifest in tag_req_json['results']:
         name = manifest.get('name', '')
 
         # 排除 tag
@@ -203,10 +204,10 @@ def get_repo_docker_tags(image, limit=5):
 
         tags_data.append({
             'tag': name,
-            'start_ts': manifest.get('start_ts')
+            'last_updated': manifest.get('last_updated')
         })
 
-    tags_sort_data = sorted(tags_data, key=lambda i: i['start_ts'], reverse=True)
+    tags_sort_data = sorted(tags_data, key=lambda i: i['last_updated'], reverse=True)
 
     # limit tag
     tags_limit_data = tags_sort_data[:limit]

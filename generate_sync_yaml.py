@@ -1,3 +1,4 @@
+import json
 import os
 import re
 import yaml
@@ -31,7 +32,7 @@ def is_exclude_tag(tag):
     if re.search("-\d$", tag, re.M | re.I):
         return False
     if '-' in tag:
-        return True
+        return False
 
     return False
 
@@ -180,21 +181,21 @@ def get_repo_docker_tags(image, limit=5):
     :param limit:
     :return:
     """
-    tag_url = "https://registry.hub.docker.com/v2/repositories/{image}/tags".format(image=image)
+    tag_url = "https://registry.hub.docker.com/v2/repositories/{image}/tags?page_size={limit}".format(
+        image=image, limit=limit)
 
     tags = []
     tags_data = []
     manifest_data = []
 
     try:
-        tag_rep = requests.get(url=tag_url)
-        tag_req_json = tag_rep.json()
-        # manifest_data = tag_req_json['tags']
+        tag_rep_text = requests.get(url=tag_url).text
+        tag_req_json = json.loads(tag_rep_text)
     except Exception as e:
         print('[Get tag Error]', e)
         return tags
 
-    for manifest in tags_data:
+    for manifest in tag_req_json['results']:
         name = manifest.get('name', '')
 
         # 排除 tag
@@ -203,10 +204,10 @@ def get_repo_docker_tags(image, limit=5):
 
         tags_data.append({
             'tag': name,
-            'start_ts': manifest.get('start_ts')
+            'last_updated': manifest.get('last_updated')
         })
 
-    tags_sort_data = sorted(tags_data, key=lambda i: i['start_ts'], reverse=True)
+    tags_sort_data = sorted(tags_data, key=lambda i: i['last_updated'], reverse=True)
 
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
