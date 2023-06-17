@@ -3,7 +3,7 @@ import os
 import re
 import yaml
 import requests
-from distutils.version import LooseVersion
+# from packaging.version import Version
 
 # 基本配置
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -112,16 +112,16 @@ def get_repo_gcr_tags(image, limit=5, host="registry.k8s.io"):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t['tag'] in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t['tag'] in image_aliyun_tags:
+    #         continue
 
-        tags.append(t['tag'])
+    #     tags.append(t['tag'])
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags_limit_data)
+    return tags_limit_data
 
 
 def get_repo_quay_tags(image, limit=5):
@@ -162,16 +162,16 @@ def get_repo_quay_tags(image, limit=5):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t['tag'] in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t['tag'] in image_aliyun_tags:
+    #         continue
 
-        tags.append(t['tag'])
+    #     tags.append(t['tag'])
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags_limit_data)
+    return tags_limit_data
 
 
 def get_repo_docker_tags(image, limit=5):
@@ -212,16 +212,16 @@ def get_repo_docker_tags(image, limit=5):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t['tag'] in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t['tag'] in image_aliyun_tags:
+    #         continue
 
-        tags.append(t['tag'])
+    #     tags.append(t['tag'])
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags_limit_data)
+    return tags_limit_data
 
 def get_repo_elastic_tags(image, limit=5):
     """
@@ -266,21 +266,22 @@ def get_repo_elastic_tags(image, limit=5):
             continue
         tags_data.append(tag)
 
-    tags_sort_data = sorted(tags_data, key=LooseVersion, reverse=True)
+    # print('[repo tag]', tags_data)
+    # tags_sort_data = sorted(tags_data, key=Version, reverse=True)
 
     # limit tag
-    tags_limit_data = tags_sort_data[:limit]
+    tags_limit_data = tags_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t in image_aliyun_tags:
+    #         continue
 
-        tags.append(t)
+    #     tags.append(t)
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags_limit_data)
+    return tags_limit_data
 
 
 def get_repo_tags(repo, image, limit=5):

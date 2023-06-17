@@ -112,16 +112,16 @@ def get_repo_gcr_tags(image, limit=5, host="registry.k8s.io"):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t['tag'] in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t['tag'] in image_aliyun_tags:
+    #         continue
 
-        tags.append(t['tag'])
+    #     tags.append(t['tag'])
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags)
+    return tags_limit_data
 
 
 def get_repo_quay_tags(image, limit=5):
@@ -162,16 +162,16 @@ def get_repo_quay_tags(image, limit=5):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t['tag'] in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t['tag'] in image_aliyun_tags:
+    #         continue
 
-        tags.append(t['tag'])
+    #     tags.append(t['tag'])
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags)
+    return tags_limit_data
 
 
 def get_repo_docker_tags(image, limit=5):
@@ -212,16 +212,16 @@ def get_repo_docker_tags(image, limit=5):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t['tag'] in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t['tag'] in image_aliyun_tags:
+    #         continue
 
-        tags.append(t['tag'])
+    #     tags.append(t['tag'])
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags)
+    return tags_limit_data
 
 def get_repo_elastic_tags(image, limit=5):
     """
@@ -271,16 +271,16 @@ def get_repo_elastic_tags(image, limit=5):
     # limit tag
     tags_limit_data = tags_sort_data[:limit]
 
-    image_aliyun_tags = get_repo_aliyun_tags(image)
-    for t in tags_limit_data:
-        # 去除同步过的
-        if t in image_aliyun_tags:
-            continue
+    # image_aliyun_tags = get_repo_aliyun_tags(image)
+    # for t in tags_limit_data:
+    #     # 去除同步过的
+    #     if t in image_aliyun_tags:
+    #         continue
 
-        tags.append(t)
+    #     tags.append(t)
 
-    print('[repo tag]', tags)
-    return tags
+    # print('[repo tag]', tags)
+    return tags_limit_data
 
 
 def get_repo_tags(repo, image, limit=5):
