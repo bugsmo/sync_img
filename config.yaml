@@ -1,4 +1,4 @@
-last: 100
+last: 20
 images:
   docker.io:
     - calico/typha
@@ -12,6 +12,8 @@ images:
     - thanosio/thanos
     - bitnami/thanos
     - bitnami/bitnami-shell
+    - hashicorp/consul
+    - hashicorp/consul-k8s-control-plane
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana

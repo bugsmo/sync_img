@@ -1,4 +1,4 @@
-last: 100
+last: 20
 images:
   gcr.io:
     - tekton-releases/github.com/tektoncd/triggers/cmd/controller
