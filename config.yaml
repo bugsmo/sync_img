@@ -12,6 +12,8 @@ images:
     - thanosio/thanos
     - bitnami/thanos
     - bitnami/bitnami-shell
+    - bats/bats
+    - curlimages/curl
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana
@@ -45,6 +47,7 @@ images:
     - opstree/redis
     - opstree/redis-exporter
     - thanos/thanos
+    - kiwigrid/k8s-sidecar
   registry.k8s.io:
     - etcd
     - pause
