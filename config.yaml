@@ -14,6 +14,8 @@ images:
     - bitnami/bitnami-shell
     - bats/bats
     - curlimages/curl
+    - hashicorp/consul
+    - hashicorp/consul-k8s-control-plane
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana
