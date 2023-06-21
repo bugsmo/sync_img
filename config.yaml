@@ -16,6 +16,8 @@ images:
     - curlimages/curl
     - hashicorp/consul
     - hashicorp/consul-k8s-control-plane
+    - hashicorp/vault-k8s
+    - hashicorp/vault-enterprise
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana
