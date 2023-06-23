@@ -93,3 +93,4 @@ images:
     - tekton-releases/github.com/tektoncd/triggers/cmd/eventlistenersink
     - tekton-releases/github.com/tektoncd/triggers/cmd/interceptors
     - tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard
+    - kubebuilder/kube-rbac-proxy:v0.11.0
