@@ -18,6 +18,7 @@ images:
     - hashicorp/consul-k8s-control-plane
     - hashicorp/vault-k8s
     - hashicorp/vault-enterprise
+    - library/busybox
   docker.elastic.co:
     - elasticsearch/elasticsearch
     - kibana/kibana
